@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from 'src/services/data.service';
 import { ActivatedRoute } from '@angular/router';
+import { CommentModel } from 'src/models/commentModel';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent implements OnInit {
-  public comments!: any;
+export class CommentsComponent implements OnInit, OnDestroy {
+  public comments: Array<CommentModel> = [];
+
   private id!: number;
+  private commentSub: Subscription = new Subscription;
+
   constructor(private dataService: DataService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.comments = params.postId;
@@ -17,11 +22,16 @@ export class CommentsComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    this.dataService.getComments(this.id).subscribe(data => {
-      this.comments = data;
-      console.log(data);
-    })
+  ngOnDestroy(): void {
+    if (this.commentSub) {
+      this.commentSub.unsubscribe();
+    }
   }
 
+  ngOnInit(): void {
+    this.dataService.getComments(this.id).subscribe(data => {
+      this.comments = data as CommentModel[];
+      console.log(this.comments);
+    });
+  }
 }
