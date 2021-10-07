@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { UserModel } from 'src/models/userModel';
 import { map } from 'rxjs/operators';
 import { forkJoin, Observable } from 'rxjs';
+import { CommentModel } from 'src/models/commentModel';
+import { PostModel } from 'src/models/postModel';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,10 +21,10 @@ export class DataService {
   }
 
   public getPosts() {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts');
+    return this.http.get<Array<PostModel>>('https://jsonplaceholder.typicode.com/posts');
   }
 
   public getComments(postId: number) {
-    return this.http.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
+    return this.http.get<Array<CommentModel>>(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
   }
 }

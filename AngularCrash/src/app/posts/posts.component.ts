@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostModel } from 'src/models/postModel';
 import { DataService } from 'src/services/data.service';
 
 @Component({
@@ -8,16 +9,16 @@ import { DataService } from 'src/services/data.service';
 })
 export class PostsComponent implements OnInit {
 
-  public posts!: any;
+  public posts!: Array<PostModel>;
   constructor(private dataService: DataService) {
 
   }
 
   ngOnInit(): void {
     this.dataService.getPosts().subscribe(
-      (data) => {
-        this.posts = data;
-        console.log(data);
+      (comments:Array<PostModel>) => {
+        this.posts = comments;
+        console.log(comments);
       }
     );
   }

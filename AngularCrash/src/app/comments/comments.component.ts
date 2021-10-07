@@ -29,8 +29,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dataService.getComments(this.id).subscribe(data => {
-      this.comments = data as CommentModel[];
+    this.dataService.getComments(this.id).subscribe((comments: Array<CommentModel>) => {
+      this.comments = comments;
       console.log(this.comments);
     });
   }
