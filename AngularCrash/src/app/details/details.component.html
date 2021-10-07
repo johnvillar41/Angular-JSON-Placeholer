@@ -3,4 +3,89 @@
   <li><strong>Username: </strong>{{ user.username }}</li>
   <li><strong>Email: </strong>{{ user.email }}</li>
   <li><strong>Phone: </strong>{{ user.phone }}</li>
+  <li>
+    <strong>Address: </strong>
+    <table>
+
+      <tr>
+        <td>
+          <strong>Street: </strong>
+        </td>
+        <td>
+          <p>{{ user.address.street }}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>Suite: </strong>
+        </td>
+        <td>
+          <p>{{ user.address.suite }}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>City: </strong>
+        </td>
+        <td>
+          <p>{{ user.address.city }}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>ZipCode: </strong>
+        </td>
+        <td>
+          <p>{{ user.address.zipcode }}</p>
+        </td>
+      </tr>
+
+    </table>
+  </li>
+
+  <li>
+    <strong>Company: </strong>
+    <table>
+
+      <tr>
+        <td>
+          <strong>Company Name: </strong>
+        </td>
+        <td>
+          <p>{{ user.company.name }}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>Catchphrase: </strong>
+        </td>
+        <td>
+          <p>{{ user.company.catchPhrase }}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>BS: </strong>
+        </td>
+        <td>
+          <p>{{ user.company.bs }}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>ZipCode: </strong>
+        </td>
+        <td>
+          <p>{{ user.address.zipcode }}</p>
+        </td>
+      </tr>
+
+    </table>
+  </li>
 </ul>
