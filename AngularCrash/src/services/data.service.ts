@@ -18,4 +18,8 @@ export class DataService {
   public getPosts() {
     return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
+
+  public getComments(postId: number) {
+    return this.http.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
+  }
 }

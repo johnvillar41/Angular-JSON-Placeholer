@@ -15,7 +15,10 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getPosts().subscribe(
-      data => this.posts = data
+      (data) => {
+        this.posts = data;
+        console.log(data);
+      }
     );
   }
 

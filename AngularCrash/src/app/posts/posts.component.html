@@ -3,5 +3,6 @@
   <li *ngFor="let post of posts">
     <a routerLink="">{{ post.title }}</a>
     <p> {{ post.body }}</p>
+    <button class="btn btn-good" routerLink="{{ post.id }}/comments">View Comments</button>
   </li>
 </ul>
