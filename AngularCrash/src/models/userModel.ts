@@ -6,7 +6,7 @@ export class UserModel {
   address!: AddressModel;
   company!:CompanyModel;
   name!:string;
-
+  website!:string;
 }
 
 export class AddressModel {

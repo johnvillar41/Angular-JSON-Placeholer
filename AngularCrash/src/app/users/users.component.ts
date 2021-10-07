@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserModel } from 'src/models/userModel';
 import { DataService } from 'src/services/data.service';
 
 @Component({
@@ -6,17 +8,24 @@ import { DataService } from 'src/services/data.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
+  public users!: Array<UserModel>;
 
-  public users!: any;
+  private userSub: Subscription = new Subscription;
   constructor(private dataService: DataService) { }
 
+  ngOnDestroy(): void {
+    if (this.userSub) {
+      this.userSub.unsubscribe();
+    }
+  }
+
   ngOnInit(): void {
-    this.dataService.getUsers().subscribe(
-      data => {
-        this.users = data;
-        console.log(data);
-        console.log(typeof(data));
+    this.userSub = this.dataService.getUsers().subscribe(
+      (user: Array<UserModel>) => {
+        this.users = user;
+        console.log(user);
+        console.log(typeof (user));
       }
     );
   }

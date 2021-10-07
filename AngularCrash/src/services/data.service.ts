@@ -11,7 +11,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   public getUsers() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+    return this.http.get<Array<UserModel>>('https://jsonplaceholder.typicode.com/users');
   }
 
   public getUser(userId: number): Observable<UserModel> {
