@@ -1,91 +1,100 @@
 <h1>{{ user.name }}</h1>
-<ul>
-  <li><strong>Username: </strong>{{ user.username }}</li>
-  <li><strong>Email: </strong>{{ user.email }}</li>
-  <li><strong>Phone: </strong>{{ user.phone }}</li>
-  <li>
-    <strong>Address: </strong>
-    <table>
 
-      <tr>
-        <td>
-          <strong>Street: </strong>
-        </td>
-        <td>
-          <p>{{ user.address.street }}</p>
-        </td>
-      </tr>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Primary Details">
+    <mat-card>
+      <ul>
+        <li><strong>Username: </strong>{{ user.username }}</li>
+        <li><strong>Email: </strong>{{ user.email }}</li>
+        <li><strong>Phone: </strong>{{ user.phone }}</li>
+      </ul>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Address">
+    <mat-card>
+      <strong>Address: </strong>
+      <table>
+        <tr>
+          <td>
+            <strong>Street: </strong>
+          </td>
+          <td>
+            {{ user.address.street }}
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <strong>Suite: </strong>
-        </td>
-        <td>
-          <p>{{ user.address.suite }}</p>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <strong>Suite: </strong>
+          </td>
+          <td>
+            {{ user.address.suite }}
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <strong>City: </strong>
-        </td>
-        <td>
-          <p>{{ user.address.city }}</p>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <strong>City: </strong>
+          </td>
+          <td>
+            {{ user.address.city }}
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <strong>ZipCode: </strong>
-        </td>
-        <td>
-          <p>{{ user.address.zipcode }}</p>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <strong>ZipCode: </strong>
+          </td>
+          <td>
+            {{ user.address.zipcode }}
+          </td>
+        </tr>
 
-    </table>
-  </li>
+      </table>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Company">
+    <mat-card>
+      <strong>Company: </strong>
+      <table>
 
-  <li>
-    <strong>Company: </strong>
-    <table>
+        <tr>
+          <td>
+            <strong>Company Name: </strong>
+          </td>
+          <td>
+            {{ user.company.name }}
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <strong>Company Name: </strong>
-        </td>
-        <td>
-          <p>{{ user.company.name }}</p>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <strong>Catchphrase: </strong>
+          </td>
+          <td>
+            {{ user.company.catchPhrase }}
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <strong>Catchphrase: </strong>
-        </td>
-        <td>
-          <p>{{ user.company.catchPhrase }}</p>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <strong>BS: </strong>
+          </td>
+          <td>
+            {{ user.company.bs }}
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <strong>BS: </strong>
-        </td>
-        <td>
-          <p>{{ user.company.bs }}</p>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <strong>ZipCode: </strong>
+          </td>
+          <td>
+            {{ user.address.zipcode }}
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <strong>ZipCode: </strong>
-        </td>
-        <td>
-          <p>{{ user.address.zipcode }}</p>
-        </td>
-      </tr>
-
-    </table>
-  </li>
-</ul>
+      </table>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
